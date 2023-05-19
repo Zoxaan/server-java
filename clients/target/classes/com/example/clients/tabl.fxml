@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="567.0" prefWidth="775.0" style="-fx-background-color: #29497F;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.clients.controller.HelloController">
+   <children>
+      <TabPane layoutX="179.0" layoutY="35.0" prefHeight="365.0" prefWidth="636.0" style="-fx-background-color: #29497F;" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <tabs>
+          <Tab style="-fx-background-color: #6A92D4; -fx-font-size: 15px;" text="клиенты">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="tableClients" layoutY="22.0" prefHeight="480.0" prefWidth="775.0" AnchorPane.bottomAnchor="58.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                          <columns>
+                            <TableColumn fx:id="clientsName" prefWidth="75.0" style="-fx-border-radius: 1px; -fx-border-color: #1B0773; -fx-font-size: 16px;" text="Имя" />
+                            <TableColumn fx:id="clientsLastname" prefWidth="75.0" style="-fx-border-radius: 1px; -fx-border-color: #1B0773; -fx-font-size: 16px;" text="Фамилия" />
+                              <TableColumn fx:id="clientsSurname" prefWidth="75.0" style="-fx-border-radius: 1px; -fx-border-color: #1B0773; -fx-font-size: 16px;" text="Отчество" />
+                          </columns>
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
+                        </TableView>
+                        <TextField fx:id="SearchFieldName" layoutX="468.0" layoutY="495.0" style="-fx-border-color: #000000; -fx-border-radius: 5px;" />
+                        <Button layoutX="619.0" layoutY="493.0" mnemonicParsing="false" onAction="#SearchDataClients" prefHeight="30.0" prefWidth="130.0" style="-fx-background-color: #6A92D4; -fx-border-color: #000000; -fx-border-radius: 5px;" text="Поиск имени">
+                           <font>
+                              <Font name="Arial Black" size="12.0" />
+                           </font></Button>
+                        <ButtonBar layoutX="72.0" layoutY="492.0" prefHeight="34.0" prefWidth="380.0">
+                          <buttons>
+                            <Button contentDisplay="CENTER" mnemonicParsing="false" onAction="#click_newClient" prefHeight="30.0" style="-fx-background-color: #6A92D4; -fx-background-radius: 5px; -fx-border-color: #000000; -fx-border-radius: 5px;" text="Add">
+                                 <font>
+                                    <Font name="Arial Black" size="14.0" />
+                                 </font></Button>
+                              <Button mnemonicParsing="false" onAction="#click_editClients" prefHeight="30.0" style="-fx-background-color: #6A92D4; -fx-background-radius: 5px; -fx-border-color: #000000; -fx-border-radius: 5px;" text="Edit">
+                                 <font>
+                                    <Font name="Arial Black" size="14.0" />
+                                 </font></Button>
+                              <Button contentDisplay="CENTER" mnemonicParsing="false" onAction="#click_removeClients" prefHeight="30.0" style="-fx-background-color: #6A92D4; -fx-background-radius: 5px; -fx-border-color: #000000; -fx-border-radius: 5px;" text="Remove">
+                                 <font>
+                                    <Font name="Arial Black" size="14.0" />
+                                 </font></Button>
+                              <Button contentDisplay="CENTER" mnemonicParsing="false" onAction="#refrashtableClients" prefHeight="30.0" style="-fx-background-color: #6A92D4; -fx-background-radius: 5px; -fx-border-color: #000000; -fx-border-radius: 5px;" text="Refresh">
+                                 <font>
+                                    <Font name="Arial Black" size="14.0" />
+                                 </font>
+                              </Button>
+                          </buttons>
+                        </ButtonBar>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab style="-fx-background-color: #6A92D4; -fx-font-size: 15px;" text="заказы">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="tableOrders" layoutY="22.0" prefHeight="480.0" prefWidth="775.0" AnchorPane.bottomAnchor="58.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <columns>
+                              <TableColumn fx:id="ordersName" prefWidth="75.0" style="-fx-border-radius: 1px; -fx-border-color: #1B0773; -fx-font-size: 16px;" text="Название заказа" />
+                              <TableColumn fx:id="ordersNameClient" prefWidth="75.0" style="-fx-border-radius: 1px; -fx-border-color: #1B0773; -fx-font-size: 16px;" text="Имя клиента" />
+                              <TableColumn fx:id="ordersNameProducts" prefWidth="75.0" style="-fx-border-radius: 1px; -fx-border-color: #1B0773; -fx-font-size: 16px;" text="Название товара" />
+                              <TableColumn fx:id="orderData" prefWidth="75.0" style="-fx-border-radius: 1px; -fx-border-color: #1B0773; -fx-font-size: 16px;" text="Дата заказа" />
+                           </columns>
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
+                        </TableView>
+                        <TextField fx:id="SearchFieldOrders" layoutX="468.0" layoutY="495.0" style="-fx-border-color: #000000; -fx-border-radius: 5px;" />
+                        <Button layoutX="619.0" layoutY="493.0" mnemonicParsing="false" onAction="#SearchDataOrders" prefHeight="30.0" prefWidth="130.0" style="-fx-background-color: #6A92D4; -fx-border-color: #000000; -fx-border-radius: 5px;" text="Поиск названия">
+                           <font>
+                              <Font name="Arial Black" size="12.0" />
+                           </font></Button>
+                        <ButtonBar layoutX="72.0" layoutY="492.0" prefHeight="34.0" prefWidth="380.0">
+                          <buttons>
+                            <Button mnemonicParsing="false" onAction="#click_newOrders" prefHeight="30.0" style="-fx-background-color: #6A92D4; -fx-background-radius: 5px; -fx-border-color: #000000; -fx-border-radius: 5px;" text="Add">
+                                 <font>
+                                    <Font name="Arial Black" size="14.0" />
+                                 </font></Button>
+                              <Button mnemonicParsing="false" onAction="#click_editOrders" prefHeight="30.0" style="-fx-background-color: #6A92D4; -fx-background-radius: 5px; -fx-border-color: #000000; -fx-border-radius: 5px;" text="Edit">
+                                 <font>
+                                    <Font name="Arial Black" size="14.0" />
+                                 </font></Button>
+                              <Button mnemonicParsing="false" onAction="#click_removeOrders" prefHeight="30.0" style="-fx-background-color: #6A92D4; -fx-background-radius: 5px; -fx-border-color: #000000; -fx-border-radius: 5px;" text="Remove">
+                                 <font>
+                                    <Font name="Arial Black" size="14.0" />
+                                 </font></Button>
+                              <Button mnemonicParsing="false" onAction="#refrashtableOrders" prefHeight="30.0" style="-fx-background-color: #6A92D4; -fx-background-radius: 5px; -fx-border-color: #000000; -fx-border-radius: 5px;" text="Refresh">
+                                 <font>
+                                    <Font name="Arial Black" size="14.0" />
+                                 </font>
+                              </Button>
+                          </buttons>
+                        </ButtonBar>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab style="-fx-background-color: #6A92D4; -fx-font-size: 15px;" text="товар">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #29497F;">
+                     <children>
+                        <TableView fx:id="tableProducts" prefHeight="391.0" prefWidth="775.0" AnchorPane.bottomAnchor="147.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <columns>
+                              <TableColumn fx:id="productsProducts" prefWidth="75.0" style="-fx-border-radius: 1px; -fx-border-color: #1B0773; -fx-font-size: 16px;" text="товар" />
+                              <TableColumn fx:id="productsCategory" prefWidth="75.0" style="-fx-border-radius: 1px; -fx-border-color: #1B0773; -fx-font-size: 16px;" text="категория" />
+                              <TableColumn fx:id="productsMaterial" prefWidth="75.0" style="-fx-border-radius: 1px; -fx-border-color: #1B0773; -fx-font-size: 16px;" text="материал" />
+                              <TableColumn fx:id="productsQanitity" prefWidth="75.0" style="-fx-border-radius: 1px; -fx-border-color: #1B0773; -fx-font-size: 16px;" text="количество" />
+                           </columns>
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
+                        </TableView>
+                        <TextField fx:id="SearchFieldProducts" layoutX="428.0" layoutY="410.0" style="-fx-border-color: #000000; -fx-border-radius: 5px;" />
+                        <Button layoutX="579.0" layoutY="408.0" mnemonicParsing="false" onAction="#SearchDataProducts" prefHeight="30.0" prefWidth="163.0" style="-fx-background-color: #6A92D4; -fx-border-color: #000000; -fx-border-radius: 5px;" text="Поиск названия">
+                           <font>
+                              <Font name="Arial Black" size="12.0" />
+                           </font></Button>
+                        <ButtonBar layoutX="14.0" layoutY="450.0" prefHeight="34.0" prefWidth="378.0">
+                           <buttons>
+                              <Button mnemonicParsing="false" onAction="#click_newProducts" prefHeight="30.0" style="-fx-background-color: #6A92D4; -fx-background-radius: 5px; -fx-border-color: #000000; -fx-border-radius: 5px;" text="Add">
+                                 <font>
+                                    <Font name="Arial Black" size="14.0" />
+                                 </font></Button>
+                              <Button mnemonicParsing="false" onAction="#click_editProducts" prefHeight="30.0" style="-fx-background-color: #6A92D4; -fx-background-radius: 5px; -fx-border-color: #000000; -fx-border-radius: 5px;" text="Edit">
+                                 <font>
+                                    <Font name="Arial Black" size="14.0" />
+                                 </font></Button>
+                              <Button mnemonicParsing="false" onAction="#click_removeProducts" prefHeight="29.0" style="-fx-background-color: #6A92D4; -fx-background-radius: 5px; -fx-border-color: #000000; -fx-border-radius: 5px;" text="Remove">
+                                 <font>
+                                    <Font name="Arial Black" size="14.0" />
+                                 </font></Button>
+                              <Button mnemonicParsing="false" onAction="#refrashtableProducts" prefHeight="34.0" prefWidth="88.0" style="-fx-background-color: #6A92D4; -fx-background-radius: 5px; -fx-border-color: #000000; -fx-border-radius: 5px;" text="Refresh">
+                                 <font>
+                                    <Font name="Arial Black" size="14.0" />
+                                 </font>
+                              </Button>
+                           </buttons>
+                        </ButtonBar>
+                        <TextField fx:id="SearchFieldCategory" layoutX="428.0" layoutY="439.0" style="-fx-border-color: #000000; -fx-border-radius: 5px;" />
+                        <Button layoutX="579.0" layoutY="437.0" mnemonicParsing="false" onAction="#SearchDataCategory" prefHeight="30.0" prefWidth="163.0" style="-fx-background-color: #6A92D4; -fx-border-color: #000000; -fx-border-radius: 5px;" text="Поиск категории">
+                           <font>
+                              <Font name="Arial Black" size="12.0" />
+                           </font></Button>
+                        <TextField fx:id="SearchFielQanitity" layoutX="428.0" layoutY="497.0" style="-fx-border-color: #000000; -fx-border-radius: 5px;" />
+                        <Button layoutX="579.0" layoutY="495.0" mnemonicParsing="false" onAction="#SearchDataQanitity" prefHeight="30.0" prefWidth="163.0" style="-fx-background-color: #6A92D4; -fx-border-color: #000000; -fx-border-radius: 5px;" text="Поиск по количеству">
+                           <font>
+                              <Font name="Arial Black" size="12.0" />
+                           </font></Button>
+                        <TextField fx:id="SearchFieldMaterial" layoutX="428.0" layoutY="468.0" style="-fx-border-color: #000000; -fx-border-radius: 5px;" />
+                        <Button layoutX="579.0" layoutY="466.0" mnemonicParsing="false" onAction="#SearchDataMaterial" prefHeight="30.0" prefWidth="163.0" style="-fx-background-color: #6A92D4; -fx-border-color: #000000; -fx-border-radius: 5px;" text="Поиск по материалу">
+                           <font>
+                              <Font name="Arial Black" size="12.0" />
+                           </font></Button>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>
