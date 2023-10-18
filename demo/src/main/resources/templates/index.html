@@ -21,20 +21,12 @@
         <td th:text = "${user.login}"></td>
         <td th:text = "${user.password}"></td>
         <td>
-            <a th:text="@{/api/users/delete(id=${user.id})}">Delete</a>
-            <a th:text="@{/api/users/delete(id=${user.id})}">Edit</a>
+            <a th:href="@{/api/users/delete(id=${user.id})}">Delete</a>
+            <a th:href="@{/api/users/edit(id=${user.id})}">Edit</a>
         </td>
     </tr>
     </tbody>
 </table>
-<form th:action="@{/api/users/save}" th:object="${user}" method="post">
-<label>Name</label>
-<input type="text" th:field="*{login}">
-<label >Login</label>
-<input type="text" th:field="*{password}">
-<label >Password</label>
-<button type="submit">Save</button>
-</form>
 <form th:action="@{/api/users/update}" th:object="${user}" method="post">
     <input type="hidden" th:field="*{id}">
     <label>Name</label>
@@ -42,7 +34,6 @@
     <label >Login</label>
     <input type="text" th:field="*{password}"><button type="submit">Save</button>
     <label >Password</label>
-    <button type="submit">Save</button>
 </form>
 </body>
 </html>

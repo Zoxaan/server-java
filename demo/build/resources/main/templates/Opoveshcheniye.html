@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>opoves</title>
+</head>
+<body>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>text</th>
+        <th>user</th>
+        <th></th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="opoves: ${opovesh}"></td>
+        <td th:text="${opoves.id}"></td>
+        <td th:text="${opoves.text}"></td>
+        <td th:text="${opoves.users.login}"></td>
+        <td th:href="@{/api/opoves/edit(id=${opoves.id})}">
+            <a th:href="@{/api/opoves/edit(id=${opoves.id})}">edit</a>
+            <a th:href="@{/api/opoves/delete(id=${opoves.id})}">delete</a>
+        </td>
+
+
+    </tr>
+    </tbody>
+</table>
+<form th:action="@{/api/opoves/save}" th:object="${opoves}" method="post">
+    <label>text</label>
+    <input type="text" th:field="*{text}">
+    <label>user id</label>
+    <input type="text" th:field="*{users.id}">
+    <button  type="submit">добавить</button>
+
+</form>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>opovesedit</title>
+</head>
+<body>
+<form th:action="@{/api/opoves/update}" th:object="${opoves}" method="post">
+  <input type="hidden" th:field="*{id}">
+  <label>Name</label>
+  <input type="text" th:field="*{text}">
+  <label >Login</label>
+  <input type="text" th:field="*{users.id}"><button type="submit">Save</button>
+  <label >Users</label>
+</form>
+</body>
+</html>
